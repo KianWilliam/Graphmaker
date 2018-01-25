@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="package" version="3.x" method="upgrade">
+ <identifier>pkg:graphmaker</identifier>
+ <name>Graphmaker Package</name>
+ <author>Kian William Nowrouzian</author>
+ <creationDate>September 2017</creationDate>
+ <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+ <packagename>graphmaker</packagename>
+ <version>1.0.0</version>
+ <url>http://www.extensions.lord121.ir</url>
+ <packager>Kian William Nowrouzian</packager>
+ <packagerurl>http://www.extensions.lord121.ir</packagerurl>
+ <description><![CDATA[<div style="color:#fff; background-color:#f015d9; padding:5px;">The complete package of graphmaker including both component, module and plugin. Enjoy!</div> ]]></description>
+ <update>http://www.extensions.lord121.ir</update>
+ <scriptfile>install.script.php</scriptfile>
+ <files>
+   <file type="component" id="com_graphmaker" >admin.zip</file>
+   <file type="module" id="mod_graphmaker" client="site">modules.zip</file>
+   <file type="plugin" id="plg_graphmaker" client="site">plugins.zip</file>
+</files>
+<updateservers>
+		<server type="collection" name="pkg_graphmaker"><![CDATA[http://www.extensions.lord121.ir/myextensions.xml]]></server>
+</updateservers>
+ </extension>

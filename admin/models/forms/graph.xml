@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form addfieldpath="/administrator/components/com_graphmaker/models/fields">
+    <fieldset name="general">
+		<field name="title"
+               type="text"
+               label="JGLOBAL_TITLE"
+               description="COM_GRAPHMAKER_TITLE_DESC"
+               class="inputbox"
+               size="30"
+               required="true"
+        />
+		<field name="alias"
+               type="text"
+               label="JFIELD_ALIAS_LABEL"
+               description="JFIELD_ALIAS_DESC"
+               class="inputbox"
+               size="30"
+        />
+		<field id="published"
+               name="published"
+               type="list"
+               label="JGLOBAL_STATE"
+               description="JFIELD_PUBLISHED_DESC"
+               class="inputbox"
+               size="1"
+               default="1"
+        >
+            <option value="1">
+                JPUBLISHED</option>
+            <option value="0">
+                JUNPUBLISHED</option>			
+        </field>
+		<field name="id"
+               type="text"
+               label="JGLOBAL_FIELD_ID_LABEL"
+               description="JGLOBAL_FIELD_ID_DESC"
+               size="10"
+               default="0"
+               readonly="true"
+               class="readonly"
+        />
+		<field name="checked_out"
+			type="hidden"
+			filter="unset"
+		/>
+		<field name="checked_out_time"
+			type="hidden"
+			filter="unset"
+		/>
+		<field  name="catid" type="category" extension="com_graphmaker" class="inputbox" default="" label="COM_GRAPHMAKER_FIELD_CATID_LABEL"  description="COM_GRAPHMAKER_FIELD_CATID_DESC"  required="true" >
+			<option value="0">JOPTION_SELECT_CATEGORY</option>
+		</field>
+    </fieldset>
+		<fields name="params" >
+			<fieldset name="general_settings" label="General">
+				<field name="show_category_title" 
+                   type="list"
+				   default="1"
+                   label="COM_GRAPHMAKER_SHOWCATTITLE_LABEL"
+                   description="COM_GRAPHMAKER_SHOWCATTITLE_DESC" >
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+            </field>
+				<field name="graph_type" 
+                   type="list" 
+				   default="serial"
+                   label="COM_GRAPHMAKER_TYPE_LABEL"
+                   description="COM_GRAPHMAKER_TYPE_DESC">
+				   <option value="none">None</option>
+				   	<option value="line">Line</option>
+				   <option value="serial">Serial</option>
+                </field>
+				<field name="font_family" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_FONTFAMILY_LABEL"
+                   default="arial"
+                   filter="raw" 
+                   description="COM_GRAPHMAKER_FONTFAMILY_DESC">
+                </field>
+				<field name="font_size" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_FONTSIZE_LABEL"
+                   default="10"
+                   filter="integer" 
+                   description="COM_GRAPHMAKER_FONTSIZE_DESC">
+                </field>
+				<field name="auto_margins" 
+                   type="list"
+				   default="1"
+                   label="COM_GRAPHMAKER_AUTOMARGIN_LABEL"
+                   description="COM_GRAPHMAKER_AUTOMARGIN_DESC" filter="boolean">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="margin_top" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_MARGINTOP_LABEL"
+                   default="0"
+                   description="COM_GRAPHMAKER_MARGINTOP_DESC" filter="integer">
+                </field>
+				<field name="margin_right" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_MARGINRIGHT_LABEL"
+                   default="1"
+                   description="COM_GRAPHMAKER_MARGINRIGHT_DESC" filter="integer">
+                </field>
+				<field name="margin_left" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_MARGINLEFT_LABEL"
+                   default="0"
+                   description="COM_GRAPHMAKER_MARGINLEFT_DESC" filter="integer">
+                </field>
+				<field name="automargin_offset" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_AUTOMARGINOFFSET_LABEL"
+                   default="5"
+                   description="COM_GRAPHMAKER_AUTOMARGINOFFSET_DESC" filter="integer" >
+                </field>
+				<field name="addclass_names" 
+                   type="list" 
+				   default="1"
+                   label="COM_GRAPHMAKER_ADDCLASSNAMES_LABEL"
+                   description="COM_GRAPHMAKER_ADDCLASSNAMES_DESC" >
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="zoomout_text" 
+                   type="list" 
+				   default=""
+                   label="COM_GRAPHMAKER_ZOOMOUTTEXT_LABEL"
+                   description="COM_GRAPHMAKER_ZOOMOUTTEXT_DESC">
+				   <option value="">Empty</option>
+				   	<option value="show all">Show All</option>
+                </field>
+				</fieldset>
+				<fieldset name="filters_settings" label="Filters Settings">
+				
+					<field name="blur" type="graphspace" label="COM_GRAPHMAKER_FILTERBLUR_LABEL" description="COM_GRAPHMAKER_FILTERBLUR_DESC" />
+					<field name="blur_x" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_BLURX_LABEL"
+                   default="-50%"
+                   description="COM_GRAPHMAKER_BLURX_DESC" />
+				   <field name="blur_y" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_BLURY_LABEL"
+                   default="-50%"
+                   description="COM_GRAPHMAKER_BLURY_DESC" />
+				   <field name="blur_width" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_BLURWIDTH_LABEL"
+                   default="200%"
+                   description="COM_GRAPHMAKER_BLURWIDTH_DESC" />
+				   <field name="blur_height" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_BLURHEIGHT_LABEL"
+                   default="200%"
+                   description="COM_GRAPHMAKER_BLURHEIGHT_DESC" />
+				   <field name="fegaussian_blur_in" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_FECAUSSIANBLUR_IN_LABEL"
+                   description="COM_GRAPHMAKER_FEGAUSSIANBLUR_IN_DESC" default="SourceGraphic">
+				    <option value="SourceGraphic">Source Graphic</option>
+					<option value="SourceAlpha">Source Alpha</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+				   <field name="fegaussian_blur_std_deviation" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_FEGAUSSIANBLUR_STD_DEVIATION_LABEL"
+                   description="COM_GRAPHMAKER_FEGAUSSIANBLUR_STD_DEVIATION_DESC" default="50" />
+				   
+					
+				  <field name="shadow" type="graphspace" label="COM_GRAPHMAKER_FILTERSHADOW_LABEL" description="COM_GRAPHMAKER_FILTERSHADOW_DESC" />
+					<field name="shadow_width" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_SHADOWWIDTH_LABEL"
+                   default="150%"
+                   description="COM_GRAPHMAKER_SHADOWWIDTH_DESC" />
+				   
+				   <field name="shadow_height" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_SHADOWHEIGHT_LABEL"
+                   default="150%"
+                   description="COM_GRAPHMAKER_SHADOWHEIGHT_DESC" />
+				   
+				   
+				   <field name="shadow_feoffset" type="graphspace" label="COM_GRAPHMAKER_FILTERSHADOW_FEOFFSET_LABEL" description="COM_GRAPHMAKER_FILTERSHADOW_FEOFFSET_DESC" />
+					<field name="feoffset_shadow_result" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_FEOFFSETSHADOW_RESULT_LABEL"
+                   description="COM_GRAPHMAKER_FEOFFSETSHADOW_RESULT_DESC" default="offOut">
+				    <option value="blurOut">Blur Out</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+					<field name="feoffset_shadow_in" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_FEOFFSETSHADOW_IN_LABEL"
+                   description="COM_GRAPHMAKER_FEOFFSETSHADOW_IN_DESC" default="SourceAlpha">
+				    <option value="SourceGraphic">Source Graphic</option>
+					<option value="SourceAlpha">Source Alpha</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+					<field name="shadow_feoffset_dx" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_SHADOW_FEOFFSET_DX_LABEL"
+                   default="2"
+                   description="COM_GRAPHMAKER_SHADOW_FEOFFSET_DX_DESC" /> 				   
+				   
+				   
+				   
+				   <field name="shadow_feoffset_dy" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_SHADOW_FEOFFSET_DY_LABEL"
+                   default="2"
+                   description="COM_GRAPHMAKER_SHADOW_FEOFFSET_DY_DESC" />
+				   
+				   
+                  <field name="shadow_fegaussian_blur" type="graphspace" label="COM_GRAPHMAKER_FILTERSHADOW_FEGAUSSIANBLUR_LABEL" description="COM_GRAPHMAKER_FILTERSHADOW_FEGAUSSIANBLUR_DESC" />
+					<field name="fegaussian_shadow_result" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_FEGAUSSIANSHADOW_RESULT_LABEL"
+                   description="COM_GRAPHMAKER_FEGAUSSIANSHADOW_RESULT_DESC" default="blurOut">
+				    <option value="blurOut">Blur Out</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+					<field name="fegaussian_shadow_in" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_FECAUSSIANSHADOW_IN_LABEL"
+                   description="COM_GRAPHMAKER_FEGAUSSIANSHADOW_IN_DESC" default="offOut">
+				    <option value="SourceGraphic">Source Graphic</option>
+					<option value="SourceAlpha">Source Alpha</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+				   <field name="fegaussian_shadow_std_deviation" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_FEGAUSSIANSHADOW_STD_DEVIATION_LABEL"
+                   description="COM_GRAPHMAKER_FEGAUSSIANSHADOW_STD_DEVIATION_DESC" default="10" />
+				   
+				  <field name="shadow_fecolor_matrix" type="graphspace" label="COM_GRAPHMAKER_FILTERSHADOW_FECOLORMATRIX_LABEL" description="COM_GRAPHMAKER_FILTERSHADOW_FECOLORMATRIX_DESC" />
+					<field name="fecolor_shadow_result" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_FECOLORSHADOW_RESULT_LABEL"
+                   description="COM_GRAPHMAKER_FECOLORSHADOW_RESULT_DESC" default="blurOut">
+				    <option value="blurOut">Blur Out</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+				
+				 <field name="shadow_feblend" type="graphspace" label="COM_GRAPHMAKER_FILTERSHADOW_FEBLEND_LABEL" description="COM_GRAPHMAKER_FILTERSHADOW_FEBLEND_DESC" />
+					<field name="feblend_shadow_in" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_FEBLENDSHADOW_IN_LABEL"
+                   description="COM_GRAPHMAKER_FEBLENDSHADOW_IN_DESC" default="SourceGraphic">
+				    <option value="SourceGraphic">Source Graphic</option>
+					<option value="SourceAlpha">Source Alpha</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+				   
+				   <field name="feblend_shadow_in2" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_FEBLENDSHADOW_IN2_LABEL"
+                   description="COM_GRAPHMAKER_FEBLENDSHADOW_IN2_DESC" default="blurOut">
+				   	<option value="blurOut">Blur Out</option>
+				    <option value="SourceGraphic">Source Graphic</option>
+					<option value="SourceAlpha">Source Alpha</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>				   
+				</fieldset>	
+				
+                <fieldset name="category_settings" label="Category Axis Settings">				
+				<field name="graph_category_field" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_CATEGORYFIELD_LABEL"
+                   filter="raw"
+					class="inputbox"
+					required="true"
+                   description="COM_GRAPHMAKER_CATEGORYFIELD_DESC">
+                </field>
+				<field name="graph_category_field_startvalue" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_CATEGORYFIELD_STARTVALUE_LABEL"
+                   filter="integer"
+					class="inputbox"
+               required="true"
+                  description="COM_GRAPHMAKER_CATEGORYFIELD_STARTVALUE_DESC">
+                </field>
+				<field name="graph_category_field_endvalue" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_CATEGORYFIELD_ENDVALUE_LABEL"
+                   filter="integer" 
+				   	class="inputbox"
+					required="true"
+                   description="COM_GRAPHMAKER_CATEGORYFIELD_ENDVALUE_DESC">
+                </field>
+				
+				<field name="grid_alpha" 
+                   type="text" 
+                   label="COM_GRAPHMAKER_GRIDALPHA_LABEL"
+                   default="0.07"
+                   filter="float" 
+                   description="COM_GRAPHMAKER_GRIDALPHA_DESC">
+                </field>
+				<field name="axis_color" 
+                   type="axiscolor"
+					default="#dadada"
+                   label="COM_GRAPHMAKER_AXISCOLOR_LABEL"
+                   description="COM_GRAPHMAKER_AXISCOLOR_DESC">
+                </field>
+				<field name="starton_axis" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_STARTONAXIS_LABEL"
+                   description="COM_GRAPHMAKER_STARTONAXIS_DESC" default="1">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="tick_length" 
+                   type="text"
+					default="0"
+                   label="COM_GRAPHMAKER_TICKLENGTH_LABEL"
+                   description="COM_GRAPHMAKER_TICKLENGTH_DESC">
+                </field>
+				<field name="parse_dates" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_PARSEDATES_LABEL"
+                   description="COM_GRAPHMAKER_PARSEDATES_DESC" default="0" >
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				</fieldset>
+				<fieldset name="axes_value_settings" label="Axes Values">
+
+				
+				<field name="ignore_axis_width" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_IGNOREAXISWIDTH_LABEL"
+                   description="COM_GRAPHMAKER_IGNOREAXISWIDTH_DESC" default="1" filter="boolean">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="stack_type" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_STACKTYPE_LABEL"
+                   description="COM_GRAPHMAKER_STACKTYPE_DESC" 
+				   default="regular">
+				   	<option value="regular">Regular</option>
+				   <option value="none">None</option>
+				   <option value="stacked">Stacked</option>
+                </field>
+				<field name="grid_alpha" 
+                   type="text"
+					default="0.07"
+                   label="COM_GRAPHMAKER_GRIDALPHA_LABEL"
+				   filter="float"
+                   description="COM_GRAPHMAKER_GRIDALPHA_DESC">
+                </field>
+				<field name="axis_alpha" 
+                   type="text"
+					default="0"
+                   label="COM_GRAPHMAKER_AXISALPHA_LABEL"
+                   description="COM_GRAPHMAKER_AXISALPHA_DESC">
+                </field>
+				<field name="graph_inside" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_GRAPHINSIDE_LABEL"
+                   description="COM_GRAPHMAKER_GRAPHINSIDE_DESC" default="1">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				</fieldset>
+                 <fieldset name="cursor_settings" label="Cursor Settings">
+				<field name="graph_zoomable" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_GRAPHZOOMABLE_LABEL"
+                   description="COM_GRAPHMAKER_GRAPHZOOMABLE_DESC" default="0"  >
+				   	<option value="0">False</option>
+				   <option value="1">True</option>
+                </field>
+				<field name="cursor_color" 
+                   type="axiscolor" 
+				   default="#fff"
+                   label="COM_GRAPHMAKER_CURSORCOLOR_LABEL"
+                   description="COM_GRAPHMAKER_CURSORCOLOR_DESC">
+                </field>
+				<field name="cat_balloon_color" 
+                   type="axiscolor" 
+				   default="#8d83c8"
+                   label="COM_GRAPHMAKER_CATBALLOONCOLOR_LABEL"
+                   description="COM_GRAPHMAKER_CATBALLOONCOLOR_DESC">
+                </field>
+				<field name="full_width" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_FULLWIDTH_LABEL"
+                   description="COM_GRAPHMAKER_FULLWIDTH_DESC" default="1" filter="boolean">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="balloon_pointer_orientation" 
+                   type="list" 
+                   label="COM_GRAPHMAKER_BPO_LABEL"
+                   description="COM_GRAPHMAKER_BPO_DESC" default="vertical">
+				   <option value="vertical">Vertical</option>
+				   	<option value="horizontal">Horizontal</option>
+                </field>
+				</fieldset>
+				<fieldset name="balloon_settings" label="Balloon Settings">
+				<field name="border_alpha" 
+                   type="text"
+					default="0"
+					filter="float"
+                   label="COM_GRAPHMAKER_BORDERALPHA_LABEL"
+                   description="COM_GRAPHMAKER_BORDERALPHA_DESC">
+                </field>
+				 <field name="fill_alpha" 
+                   type="text"
+					default="0"
+					filter="float"
+                   label="COM_GRAPHMAKER_FILLALPHA_LABEL"
+                   description="COM_GRAPHMAKER_FILLALPHA_DESC">
+                </field>
+				 <field name="shadow_alpha" 
+                   type="text"
+					default="0"
+					filter="float"
+                   label="COM_GRAPHMAKER_SHADOWALPHA_LABEL"
+                   description="COM_GRAPHMAKER_SHADOWALPHA_DESC">
+                </field>
+				 <field name="offset_x" 
+                   type="text"
+					default="40"
+                   label="COM_GRAPHMAKER_OFFSETX_LABEL"
+                   description="COM_GRAPHMAKER_OFFSETX_DESC">
+                </field>
+				<field name="offset_y" 
+                   type="text"
+					default="-50"
+                   label="COM_GRAPHMAKER_OFFSETY_LABEL"
+                   description="COM_GRAPHMAKER_OFFSETY_DESC">
+                </field>
+				</fieldset>	
+			<fieldset name="graphs">
+		        <field name="graphs" type="mygraphsmanager" label="COM_GRAPHMAKER_FIELD_GRAPHS_LABEL" description="COM_GRAPHMAKER_FIELD_GRAPHS_DESC" filter="raw" default="[{}]" />
+	        </fieldset>				
+
+		</fields>
+</form>

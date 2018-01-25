@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension	type="module" version="3.x" method="upgrade" client="site" >
+	<name>Graphmaker</name>
+	<author>Kian William Nowrouzian</author>
+	<creationDate>September 2017</creationDate>
+	<copyright>Copyright (C) 2005 - 2017  All rights reserved.</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorEmail>mezmer121@gmail.com</authorEmail>
+	<authorUrl>http://www.extensions.lord121.ir</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[
+			<div style="font-weight:bold;background-color:#B94FB6;color:#fff;padding:5px">
+			<p><strong>Module Graphmaker,  if you uninstall component, module could not be of use.</strong></p>
+			<p>
+				For support &/or any question go to <a href="http://www.extensions.lord121.ir" target="_blank">Extensions</a>
+			</p>
+			<small style="float:right">ver. 1.0.0</small>
+			</div>
+     ]]>
+	 </description>
+	 <files>
+		<filename module="mod_graphmaker">mod_graphmaker.php</filename>
+		<filename>mod_graphmaker.xml</filename>
+		<filename>helper.php</filename>
+		<filename>tmpl/default.php</filename>
+		<filename>index.html</filename>
+	 </files>
+	 <languages folder="language">
+         <language tag="en-GB">en-GB/en-GB.mod_graphmaker.ini</language>
+         <language tag="en-GB">en-GB/en-GB.mod_graphmaker.sys.ini</language>
+     </languages>
+	 <config>
+		<fields name="params" addfieldpath="/administrator/components/com_graphmaker/models/fields" >
+		    <fieldset name="basic">
+				<field name="show_category_title" 
+                   type="list"
+				   default="1"
+                   label="MOD_GRAPHMAKER_SHOWCATTITLE_LABEL"
+                   description="MOD_GRAPHMAKER_SHOWCATTITLE_DESC">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="graph_type" 
+                   type="list" 
+				   default="serial"
+                   label="MOD_GRAPHMAKER_TYPE_LABEL"
+                   description="MOD_GRAPHMAKER_TYPE_DESC">
+				   <option value="none">None</option>
+				   	<option value="line">Line</option>
+				   <option value="serial">Serial</option>
+                </field>
+				<field name="font_family" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_FONTFAMILY_LABEL"
+                   default="arial"
+                   filter="raw" 
+                   description="MOD_GRAPHMAKER_FONTFAMILY_DESC">
+                </field>
+				<field name="font_size" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_FONTSIZE_LABEL"
+                   default="arial"
+                   filter="integer" 
+                   description="MOD_GRAPHMAKER_FONTSIZE_DESC">
+                </field>
+				<field name="auto_margins" 
+                   type="list"
+				   default="1"
+                   label="MOD_GRAPHMAKER_AUTOMARGIN_LABEL"
+                   description="MOD_GRAPHMAKER_AUTOMARGIN_DESC">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="margin_top" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_MARGINTOP_LABEL"
+                   default="0"
+                   description="MOD_GRAPHMAKER_MARGINTOP_DESC" filter="integer">
+                </field>
+				<field name="margin_right" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_MARGINRIGHT_LABEL"
+                   default="1"
+                   description="MOD_GRAPHMAKER_MARGINRIGHT_DESC" filter="integer">
+                </field>
+				<field name="margin_left" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_MARGINLEFT_LABEL"
+                   default="0"
+                   description="MOD_GRAPHMAKER_MARGINLEFT_DESC" filter="integer">
+                </field>
+				<field name="automargin_offset" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_AUTOMARGINOFFSET_LABEL"
+                   default="5"
+                   description="MOD_GRAPHMAKER_AUTOMARGINOFFSET_DESC" filter="integer" >
+                </field>
+				<field name="addclass_names" 
+                   type="list" 
+				   default="1"
+                   label="MOD_GRAPHMAKER_ADDCLASSNAMES_LABEL"
+                   description="MOD_GRAPHMAKER_ADDCLASSNAMES_DESC">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="zoomout_text" 
+                   type="list" 
+				   default=""
+                   label="MOD_GRAPHMAKER_ZOOMOUTTEXT_LABEL"
+                   description="MOD_GRAPHMAKER_ZOOMOUTTEXT_DESC">
+				   <option value="">Empty</option>
+				   	<option value="show all">Show All</option>
+                </field>
+				</fieldset>
+				<fieldset name="filters_settings" label="Filters Settings">
+				
+					<field name="blur" type="graphspace" label="MOD_GRAPHMAKER_FILTERBLUR_LABEL" description="MOD_GRAPHMAKER_FILTERBLUR_DESC" />
+					<field name="blur_x" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_BLURX_LABEL"
+                   default="-50%"
+                   description="MOD_GRAPHMAKER_BLURX_DESC" />
+				   <field name="blur_y" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_BLURY_LABEL"
+                   default="-50%"
+                   description="MOD_GRAPHMAKER_BLURY_DESC" />
+				   <field name="blur_width" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_BLURWIDTH_LABEL"
+                   default="200%"
+                   description="MOD_GRAPHMAKER_BLURWIDTH_DESC" />
+				   <field name="blur_height" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_BLURHEIGHT_LABEL"
+                   default="200%"
+                   description="MOD_GRAPHMAKER_BLURHEIGHT_DESC" />
+				   <field name="fegaussian_blur_in" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_FECAUSSIANBLUR_IN_LABEL"
+                   description="MOD_GRAPHMAKER_FEGAUSSIANBLUR_IN_DESC" default="SourceGraphic">
+				    <option value="SourceGraphic">Source Graphic</option>
+					<option value="SourceAlpha">Source Alpha</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+				   <field name="fegaussian_blur_std_deviation" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_FEGAUSSIANBLUR_STD_DEVIATION_LABEL"
+                   description="MOD_GRAPHMAKER_FEGAUSSIANBLUR_STD_DEVIATION_DESC" default="50" />
+				   
+					
+				  <field name="shadow" type="graphspace" label="MOD_GRAPHMAKER_FILTERSHADOW_LABEL" description="MOD_GRAPHMAKER_FILTERSHADOW_DESC" />
+					<field name="shadow_width" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_SHADOWWIDTH_LABEL"
+                   default="150%"
+                   description="MOD_GRAPHMAKER_SHADOWWIDTH_DESC" />
+				   
+				   <field name="shadow_height" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_SHADOWHEIGHT_LABEL"
+                   default="150%"
+                   description="MOD_GRAPHMAKER_SHADOWHEIGHT_DESC" />
+				   
+				   
+				   <field name="shadow_feoffset" type="graphspace" label="MOD_GRAPHMAKER_FILTERSHADOW_FEOFFSET_LABEL" description="MOD_GRAPHMAKER_FILTERSHADOW_FEOFFSET_DESC" />
+					<field name="feoffset_shadow_result" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_FEOFFSETSHADOW_RESULT_LABEL"
+                   description="MOD_GRAPHMAKER_FEOFFSETSHADOW_RESULT_DESC" default="offOut">
+				    <option value="blurOut">Blur Out</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+					<field name="feoffset_shadow_in" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_FEOFFSETSHADOW_IN_LABEL"
+                   description="MOD_GRAPHMAKER_FEOFFSETSHADOW_IN_DESC" default="SourceAlpha">
+				    <option value="SourceGraphic">Source Graphic</option>
+					<option value="SourceAlpha">Source Alpha</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+					<field name="shadow_feoffset_dx" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_SHADOW_FEOFFSET_DX_LABEL"
+                   default="2"
+                   description="MOD_GRAPHMAKER_SHADOW_FEOFFSET_DX_DESC" /> 				   
+				   
+				   
+				   
+				   <field name="shadow_feoffset_dy" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_SHADOW_FEOFFSET_DY_LABEL"
+                   default="2"
+                   description="MOD_GRAPHMAKER_SHADOW_FEOFFSET_DY_DESC" />
+				   
+				   
+                  <field name="shadow_fegaussian_blur" type="graphspace" label="MOD_GRAPHMAKER_FILTERSHADOW_FEGAUSSIANBLUR_LABEL" description="MOD_GRAPHMAKER_FILTERSHADOW_FEGAUSSIANBLUR_DESC" />
+					<field name="fegaussianblur_shadow_result" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_FEGAUSSIANSHADOW_RESULT_LABEL"
+                   description="MOD_GRAPHMAKER_FEGAUSSIANSHADOW_RESULT_DESC" default="blurOut">
+				    <option value="blurOut">Blur Out</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+					<field name="fegaussian_shadow_in" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_FECAUSSIANSHADOW_IN_LABEL"
+                   description="MOD_GRAPHMAKER_FEGAUSSIANSHADOW_IN_DESC" default="offOut">
+				    <option value="SourceGraphic">Source Graphic</option>
+					<option value="SourceAlpha">Source Alpha</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+				   <field name="fegaussian_shadow_std_deviation" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_FEGAUSSIANSHADOW_STD_DEVIATION_LABEL"
+                   description="MOD_GRAPHMAKER_FEGAUSSIANSHADOW_STD_DEVIATION_DESC" default="10" />
+				   
+				  <field name="shadow_fecolor_matrix" type="graphspace" label="MOD_GRAPHMAKER_FILTERSHADOW_FECOLORMATRIX_LABEL" description="MOD_GRAPHMAKER_FILTERSHADOW_FECOLORMATRIX_DESC" />
+					<field name="fecolor_shadow_result" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_FECOLORSHADOW_RESULT_LABEL"
+                   description="MOD_GRAPHMAKER_FECOLORSHADOW_RESULT_DESC" default="blurOut">
+				    <option value="blurOut">Blur Out</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+				
+				 <field name="shadow_feblend" type="graphspace" label="MOD_GRAPHMAKER_FILTERSHADOW_FEBLEND_LABEL" description="MOD_GRAPHMAKER_FILTERSHADOW_FEBLEND_DESC" />
+					<field name="feblend_shadow_in" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_FEBLENDSHADOW_IN_LABEL"
+                   description="MOD_GRAPHMAKER_FEBLENDSHADOW_IN_DESC" default="SourceGraphic">
+				    <option value="SourceGraphic">Source Graphic</option>
+					<option value="SourceAlpha">Source Alpha</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>
+				   
+				   <field name="feblend_shadow_in2" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_FEBLENDSHADOW_IN2_LABEL"
+                   description="MOD_GRAPHMAKER_FEBLENDSHADOW_IN2_DESC" default="blurOut">
+				   	<option value="blurOut">Blur Out</option>
+				    <option value="SourceGraphic">Source Graphic</option>
+					<option value="SourceAlpha">Source Alpha</option>
+				   	<option value="offOut">Off Out</option>
+                   </field>				   
+				</fieldset>	
+				
+                <fieldset name="category_settings" label="Category Axis Settings">				
+				
+				
+				<field name="grid_alpha" 
+                   type="text" 
+                   label="MOD_GRAPHMAKER_GRIDALPHA_LABEL"
+                   default="0.07"
+                   filter="float" 
+                   description="MOD_GRAPHMAKER_GRIDALPHA_DESC">
+                </field>
+				<field name="axis_color" 
+                   type="axiscolor"
+					default="#dadada"
+                   label="MOD_GRAPHMAKER_AXISCOLOR_LABEL"
+                   description="MOD_GRAPHMAKER_AXISCOLOR_DESC">
+                </field>
+				<field name="starton_axis" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_STARTONAXIS_LABEL"
+                   description="MOD_GRAPHMAKER_STARTONAXIS_DESC" default="1">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="tick_length" 
+                   type="text"
+					default="0"
+                   label="MOD_GRAPHMAKER_TICKLENGTH_LABEL"
+                   description="MOD_GRAPHMAKER_TICKLENGTH_DESC">
+                </field>
+				<field name="parse_dates" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_PARSEDATES_LABEL"
+                   description="MOD_GRAPHMAKER_PARSEDATES_DESC" default="1">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				</fieldset>
+				<fieldset name="axes_value_settings" label="Axes Values">				
+				<field name="ignore_axis_width" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_IGNOREAXISWIDTH_LABEL"
+                   description="MOD_GRAPHMAKER_IGNOREAXISWIDTH_DESC" default="1">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="stack_type" 
+                   type="list" 
+				   default="regular"
+                   label="MOD_GRAPHMAKER_STACKTYPE_LABEL"
+                   description="MOD_GRAPHMAKER_STACKTYPE_DESC">
+				   <option value="none">None</option>
+				   	<option value="regular">Regular</option>
+				   <option value="stack">Stacked</option>
+                </field>
+				<field name="grid_alpha" 
+                   type="text"
+					default="0.07"
+                   label="MOD_GRAPHMAKER_GRIDALPHA_LABEL"
+				   filter="float"
+                   description="MOD_GRAPHMAKER_GRIDALPHA_DESC">
+                </field>
+				<field name="axis_alpha" 
+                   type="text"
+					default="0"
+                   label="MOD_GRAPHMAKER_AXISALPHA_LABEL"
+                   description="MOD_GRAPHMAKER_AXISALPHA_DESC">
+                </field>
+				<field name="graph_inside" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_GRAPHINSIDE_LABEL"
+                   description="MOD_GRAPHMAKER_GRAPHINSIDE_DESC" default="1">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				</fieldset>
+                 <fieldset name="cursor_settings" label="Cursor Settings">
+				<field name="graph_zoomable" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_GRAPHZOOMABLE_LABEL"
+                   description="MOD_GRAPHMAKER_GRAPHZOOMABLE_DESC" default="0">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="cursor_color" 
+                   type="axiscolor" 
+				   default="#fff"
+                   label="MOD_GRAPHMAKER_CURSORCOLOR_LABEL"
+                   description="MOD_GRAPHMAKER_CURSORCOLOR_DESC">
+                </field>
+				<field name="cat_balloon_color" 
+                   type="axiscolor" 
+				   default="#8d83c8"
+                   label="MOD_GRAPHMAKER_CATBALLOONCOLOR_LABEL"
+                   description="MOD_GRAPHMAKER_CATBALLOONCOLOR_DESC">
+                </field>
+				<field name="full_width" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_FULLWIDTH_LABEL"
+                   description="MOD_GRAPHMAKER_FULLWIDTH_DESC" default="1">
+				   <option value="1">True</option>
+				   	<option value="0">False</option>
+                </field>
+				<field name="balloon_pointer_orientation" 
+                   type="list" 
+                   label="MOD_GRAPHMAKER_BPO_LABEL"
+                   description="MOD_GRAPHMAKER_BPO_DESC" default="vertical">
+				   <option value="vertical">Vertical</option>
+				   	<option value="horizontal">Horizontal</option>
+                </field>
+				</fieldset>
+				<fieldset name="balloon_settings" label="Balloon Settings">
+				<field name="border_alpha" 
+                   type="text"
+					default="0"
+					filter="float"
+                   label="MOD_GRAPHMAKER_BORDERALPHA_LABEL"
+                   description="MOD_GRAPHMAKER_BORDERALPHA_DESC">
+                </field>
+				 <field name="fill_alpha" 
+                   type="text"
+					default="0"
+					filter="float"
+                   label="MOD_GRAPHMAKER_FILLALPHA_LABEL"
+                   description="MOD_GRAPHMAKER_FILLALPHA_DESC">
+                </field>
+				 <field name="shadow_alpha" 
+                   type="text"
+					default="0"
+					filter="float"
+                   label="MOD_GRAPHMAKER_SHADOWALPHA_LABEL"
+                   description="MOD_GRAPHMAKER_SHADOWALPHA_DESC">
+                </field>
+				 <field name="offset_x" 
+                   type="text"
+					default="40"
+                   label="MOD_GRAPHMAKER_OFFSETX_LABEL"
+                   description="MOD_GRAPHMAKER_OFFSETX_DESC">
+                </field>
+				<field name="offset_y" 
+                   type="text"
+					default="-50"
+                   label="MOD_GRAPHMAKER_OFFSETY_LABEL"
+                   description="MOD_GRAPHMAKER_OFFSETY_DESC">
+                </field>
+				
+			</fieldset>	
+			<fieldset name="advanced" >
+                <field type="sql" name="title" label="MOD_GRAPHMAKER_QUERY_LABEL" description="MOD_GRAPHMAKER_QUERY_DSC" query="SELECT id , title FROM #__graphmaker" value_field="title" key_field="id" >
+							<option value="0">JOPTION_SELECT_ITEMS</option>
+				</field>
+			</fieldset>		
+		</fields>
+	 </config>
+
+
+
+</extension>

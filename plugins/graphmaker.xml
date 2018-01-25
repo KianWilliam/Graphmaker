@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.x" type="plugin" group="content" method="upgrade">
+	<name>plg_content_graphmaker</name>
+	<author>Kian William Nowrouzian</author>
+	<creationDate>September 2017</creationDate>
+	<copyright>Copyright (C) 2005 - 2017  All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>mezmer121@gmail.com</authorEmail>
+	<authorUrl>www.extensions.lord121.ir</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[This plugin gives life to site part of graphmaker component by adding the files in assets and initializing those files via reading the database.]]></description>
+	<files>
+		<filename plugin="graphmaker">graphmaker.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_graphmaker.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_graphmaker.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+		</fields>
+	</config>
+</extension>

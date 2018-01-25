@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionset name="Packages Graphmaker" description="Packages Graphmaker">
+   <extension name="pkg_graphmaker" element="pkg_graphmaker" type="package" version="1.0.0" detailsurl="http://www.extensions.lord121.ir/myextensions.xml"/>
+</extensionset>
