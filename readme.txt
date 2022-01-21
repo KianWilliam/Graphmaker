@@ -12,8 +12,8 @@ to place lots of modules in the same page. Remember the search engine under cate
 in the future upgrades, I could  have removed it but I did not because of the future upgrades.
 The license is GNU/GPLv3.
 It is written for joomla 3.x.
-demo : http://www.extensions.lord121.ir/mycomponents/graphmaker-demo.html
-download : http://www.extensions.lord121.ir/mycomponents/graphmaker-download.html
+demo : https://www.extensions.kwproductions121.com/mycomponents/graphmaker-demo.html
+download : https://www.extensions.kwproductions121.com/mycomponents/graphmaker-download.html
 In case of any problem contact me at:
 mezmer121@gmail.com
 long live science.
